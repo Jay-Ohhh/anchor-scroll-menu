@@ -1,0 +1,67 @@
+.webkitScrollbar_anchor(@className) {
+  /*修改滚动条样式*/
+  .@{className}::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .@{className}::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  .@{className}::-webkit-scrollbar-thumb {
+    background-color: rgba(144, 147, 153, 0.3);
+    border-radius: 10px;
+  }
+  .@{className}::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(110, 110, 111, 0.3);
+  }
+  // .@{className}::-webkit-scrollbar-corner {
+  // }
+}
+li {
+  list-style: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.menu-anchor-scroll-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  .webkitScrollbar_anchor(menu-anchor-scroll-left);
+  .menu-anchor-scroll-left {
+    background-color: #f8f8f8;
+    .menu-item {
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      padding: 0 10px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 40px;
+      text-align: left;
+      cursor: pointer;
+      &.active {
+        background-color: #fff;
+      }
+    }
+  }
+  .webkitScrollbar_anchor(menu-anchor-scroll-main);
+  .menu-anchor-scroll-main {
+    position: relative;
+    flex: 1;
+    padding: 0 16px 16px;
+    overflow-y: scroll;
+    .menu-content {
+      .menu-content-title {
+        margin: 0;
+        margin-bottom: 16px;
+        padding-top: 6px;
+        color: #333;
+        font-weight: 700;
+        font-size: 13px;
+      }
+    }
+  }
+}
