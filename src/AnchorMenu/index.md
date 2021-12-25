@@ -1,6 +1,6 @@
 ---
 nav:
-  title: 锚点菜单 AnchorMenu
+  title: 组件
   path: /components
 group:
   path: /components
@@ -12,9 +12,6 @@ group:
 ### 基本用法
 
 ```tsx
-/**
- * transform: true
- */
 import React from 'react';
 import { AnchorMenu } from 'anchor-scroll-menu';
 
