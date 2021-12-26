@@ -77,9 +77,7 @@ const useScrollToElement = (
           scrollViewElScrollPosition = easings[easing](time, begin, change, 300);
           scrollViewEl[scrollPosition] = Math.max(currentElOffset, scrollViewElScrollPosition);
         } else {
-          if (cancelId) {
-            window.cancelAnimationFrame(cancelId);
-          }
+          cancelId && window.cancelAnimationFrame(cancelId);
           callback?.();
           return;
         }

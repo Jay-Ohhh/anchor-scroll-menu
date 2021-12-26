@@ -159,9 +159,8 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   );
 
   const scrollContainer = (
-    // @ts-ignore
     <div
-      ref={scrollEle}
+      ref={scrollEle as any}
       className="menu-anchor-scroll-main"
       onScroll={() => {
         if (clock.current) return;

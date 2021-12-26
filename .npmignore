@@ -24,7 +24,8 @@
 
 # others
 /.gitignore
-/.editorconig
+/.github
+/.editorconfig
 /.env
 /.fatherrc.ts
 /.prettierignore
@@ -32,4 +33,6 @@
 /.umirc.ts
 /.tsconfig.json
 /.typings.d.ts
+/docs
 /src
+/tsconfig.json
