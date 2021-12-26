@@ -26,42 +26,67 @@ ul {
   padding: 0;
 }
 .menu-anchor-scroll-container {
-  display: flex;
   width: 100%;
   height: 100%;
-  .webkitScrollbar_anchor(menu-anchor-scroll-left);
-  .menu-anchor-scroll-left {
-    background-color: #f8f8f8;
+  &.row {
+    display: flex;
     .menu-item {
-      box-sizing: border-box;
       width: 100%;
       height: 40px;
       padding: 0 10px;
+      &.active {
+        background-color: #fff;
+      }
+    }
+    .menu-anchor-scroll-main {
+      flex: 1;
+      padding: 0 16px 16px;
+    }
+  }
+  &.col {
+    .menu-anchor-scroll-nav {
+      display: flex;
+      .menu-item {
+        padding: 0 13px;
+        &.active {
+          background-color: #fefefe;
+          border-bottom: 2px solid #1890ff;
+        }
+      }
+    }
+    .menu-anchor-scroll-main {
+      padding-top: 10px;
+      white-space: nowrap;
+      .menu-content {
+        display: inline-block;
+      }
+    }
+  }
+  .webkitScrollbar_anchor(menu-anchor-scroll-nav);
+  .menu-anchor-scroll-nav {
+    overflow: auto;
+    background-color: #f8f8f8;
+    .menu-item {
+      box-sizing: border-box;
       font-weight: 600;
       font-size: 14px;
       line-height: 40px;
       text-align: left;
       cursor: pointer;
-      &.active {
-        background-color: #fff;
-      }
+      user-select: none;
     }
   }
   .webkitScrollbar_anchor(menu-anchor-scroll-main);
   .menu-anchor-scroll-main {
     position: relative;
-    flex: 1;
-    padding: 0 16px 16px;
     overflow-y: scroll;
-    .menu-content {
-      .menu-content-title {
-        margin: 0;
-        margin-bottom: 16px;
-        padding-top: 6px;
-        color: #333;
-        font-weight: 700;
-        font-size: 13px;
-      }
+    .menu-content-title {
+      margin: 0;
+      margin-bottom: 10px;
+      padding-top: 6px;
+      color: #333;
+      font-weight: 700;
+      font-size: 13px;
     }
   }
 }

@@ -1,4 +1,5 @@
 import { defineConfig } from 'dumi';
+import OpenBrowserPlugin from 'open-browser-webpack-plugin';
 
 export default defineConfig({
   title: 'anchor-scroll-menu',
@@ -22,5 +23,17 @@ export default defineConfig({
     statsFilename: 'stats.json',
     logLevel: 'info',
     defaultSizes: 'parsed', // stat  // gzip
+  },
+  devServer: {
+    port: 8081,
+  },
+  chainWebpack(memo, { env, webpack, createCSSRule }) {
+    if (env === 'development') {
+      memo.plugin('openBrowser').use(OpenBrowserPlugin, [
+        {
+          url: 'http://localhost:8081',
+        },
+      ]);
+    }
   },
 });

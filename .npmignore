@@ -6,8 +6,6 @@
 /package-lock.json
 
 # production
-/dist
-/es
 /docs-dist
 
 # misc
@@ -34,3 +32,4 @@
 /.umirc.ts
 /.tsconfig.json
 /.typings.d.ts
+/src
