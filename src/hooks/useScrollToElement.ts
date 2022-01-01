@@ -14,6 +14,7 @@ const useScrollToElement = (
   scrollDirection: 'vertical' | 'horizontal',
   callback?: (...args: any[]) => void,
   easing: Easings = 'easeInOutCubic',
+  duration: number = 300,
 ) => {
   const scrollToElementRefs = useRef<ScrollToElementRefs>({});
   const [trigger, setTrigger] = useState(+new Date());
@@ -63,7 +64,8 @@ const useScrollToElement = (
         scrollViewEl,
         scrollDirection,
       );
-      if (childToParent !== undefined || childToParent !== null) {
+      // 排除childToParent为null或undefined
+      if (childToParent ?? false) {
         // 判断是否已经滚动到底部/右侧
         // isReachToBottom | isReachToRight
         const isTail =
@@ -71,10 +73,10 @@ const useScrollToElement = (
         const time = Math.max(1, +new Date() - startTime);
         // 因为子元素到达顶部，与父元素后可能会有[-1,1]的间距
         if (childToParent > 1 && !isTail) {
-          scrollViewElScrollPosition = easings[easing](time, begin, change, 300);
+          scrollViewElScrollPosition = easings[easing](time, begin, change, duration);
           scrollViewEl[scrollPosition] = Math.min(currentElOffset, scrollViewElScrollPosition);
         } else if (childToParent < -1) {
-          scrollViewElScrollPosition = easings[easing](time, begin, change, 300);
+          scrollViewElScrollPosition = easings[easing](time, begin, change, duration);
           scrollViewEl[scrollPosition] = Math.max(currentElOffset, scrollViewElScrollPosition);
         } else {
           cancelId && window.cancelAnimationFrame(cancelId);

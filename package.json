@@ -1,6 +1,6 @@
 {
   "name": "anchor-scroll-menu",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Anchor menu with scrolling contents for React",
   "author": "jay_ohhh",
   "keywords": [
@@ -10,7 +10,7 @@
     "component",
     "typescript"
   ],
-  "homepage": "https://jay-ohhh.github.io/anchor-scroll-menu",
+  "homepage": "https://github.com/Jay-Ohhh/anchor-scroll-menu",
   "repository": {
     "type": "git",
     "url": "https://github.com/Jay-Ohhh/anchor-scroll-menu.git"

@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState, useRef, useMemo, CSSProperties } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import useScrollToElement from '@/hooks/useScrollToElement';
-import { getOffsetDistance, Easings } from '@/utils';
+import { getOffsetDistance } from '@/utils';
 import './index.less';
 
 export interface AnchorScrollProps {
@@ -24,6 +24,12 @@ export interface AnchorScrollProps {
   placement?: 'top' | 'right' | 'bottom' | 'left';
 
   /**
+   * @description  滚动方向
+   * @default      'vertical'
+   */
+  scrollDirection?: 'vertical' | 'horizontal';
+
+  /**
    * @description  手动滚动时，滚动内容跟父元素顶部距离的区间,滚动内容一到达该区间,对应菜单按钮高亮。如果滚动过快时，菜单没有高亮，不妨将区间增大。
    * @default      [-20, 20]
    */
@@ -41,6 +47,12 @@ export interface AnchorScrollProps {
     | 'easeInCubic'
     | 'easeOutCubic'
     | 'easeInOutCubic';
+
+  /**
+   * @description  用多少ms完成滚动动画，单位 ms
+   * @default      300
+   */
+  duration?: number;
 
   /**
    * @description  隐藏内容块的title
@@ -76,6 +88,8 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   activeKey,
   onMenuClick,
   onReach,
+  scrollDirection = 'vertical',
+  duration,
 }) {
   // 滚动时设置为true,到达目的地后为false
   // 滚动到目的前,经过的菜单不会高亮
@@ -83,7 +97,6 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   const [elementNames, setElementNames] = useState<string[]>([]);
   const scrollEle = useRef<HTMLElement>(null);
   const [currentMenuKey, setCurrentMenuKey] = useState<string | undefined>(activeKey);
-  const [scrollDirection, setScrollDirection] = useState<'vertical' | 'horizontal'>('vertical');
 
   const menuWidth: number | string = useMemo(() => {
     // 菜单宽度，placement为 left | right 时，默认为 100px；placement为 top | bottom 时，默认为 100%
@@ -93,11 +106,6 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   const menuHeigth: number | string = useMemo(() => {
     // 菜单高度，placement为 left | right 时，默认为 100%；placement为 top| bottom 时，默认为 30px
     return placement === 'left' || placement === 'right' ? '100%' : 40;
-  }, [placement]);
-
-  useEffect(() => {
-    const direction = placement === 'left' || placement === 'right' ? 'vertical' : 'horizontal';
-    setScrollDirection(direction);
   }, [placement]);
 
   useDeepCompareEffect(() => {
@@ -119,6 +127,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
         onReach?.();
       },
       easing,
+      duration,
     );
 
   useEffect(() => {
@@ -161,7 +170,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   const scrollContainer = (
     <div
       ref={scrollEle as any}
-      className="menu-anchor-scroll-main"
+      className={`menu-anchor-scroll-main${scrollDirection === 'horizontal' ? ' horizontal' : ''}`}
       onScroll={() => {
         if (clock.current) return;
         for (let key in scrollToElementRefs.current) {

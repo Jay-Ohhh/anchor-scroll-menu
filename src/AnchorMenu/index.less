@@ -26,10 +26,10 @@ ul {
   padding: 0;
 }
 .menu-anchor-scroll-container {
+  display: flex;
   width: 100%;
   height: 100%;
   &.row {
-    display: flex;
     .menu-item {
       width: 100%;
       height: 40px;
@@ -44,6 +44,7 @@ ul {
     }
   }
   &.col {
+    flex-direction: column;
     .menu-anchor-scroll-nav {
       display: flex;
       .menu-item {
@@ -55,11 +56,8 @@ ul {
       }
     }
     .menu-anchor-scroll-main {
-      padding-top: 10px;
-      white-space: nowrap;
-      .menu-content {
-        display: inline-block;
-      }
+      flex: 1;
+      padding: 10px 8px 0 0;
     }
   }
   .webkitScrollbar_anchor(menu-anchor-scroll-nav);
@@ -80,6 +78,12 @@ ul {
   .menu-anchor-scroll-main {
     position: relative;
     overflow-y: scroll;
+    &.horizontal {
+      white-space: nowrap;
+      .menu-content {
+        display: inline-block;
+      }
+    }
     .menu-content-title {
       margin: 0;
       margin-bottom: 10px;

@@ -13,6 +13,16 @@ export default defineConfig({
   publicPath: '/anchor-scroll-menu/',
   // more config: https://d.umijs.org/config
 
+  // 单语言配置方式如下
+  navs: [
+    null, // null 值代表保留约定式生成的导航，只做增量配置
+    {
+      title: 'GitHub',
+      path: 'https://github.com/Jay-Ohhh/anchor-scroll-menu',
+    },
+    { title: 'Changelog', path: 'https://github.com/Jay-Ohhh/anchor-scroll-menu/releases' },
+  ],
+
   // 配置具体含义见：https://github.com/umijs/umi-webpack-bundle-analyzer#options-for-plugin
   analyze: {
     analyzerMode: 'server',
