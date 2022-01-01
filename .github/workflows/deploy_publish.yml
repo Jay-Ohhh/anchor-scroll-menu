@@ -3,25 +3,27 @@ name: deploy publish
 on:
   push:
     branches:
-      - master # default branch
+      - master
 
 jobs:
   deploy_pulish:
     runs-on: ubuntu-18.04
     steps:
       - name: Check out Repository Code to Workflow
-      - uses: actions/checkout@v2 # checkout 仓库代码到 Workflow 工作区
-      - uses: actions/setup-node@v2
-          with:
+        uses: actions/checkout@v2 # checkout 仓库代码到 Workflow 工作区
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
           node-version: '14'
           # actions/setup-node@v2 底层使用了actions/cache
-          cache: 'npm' # 缓存npm下载的依赖项，单项目仓库下会依据package-lock.josn或yarn.lock
+          # 缓存yarn下载的依赖项，单项目仓库下会依据package-lock.josn或yarn.lock，git push需要提交这两个文件
+          cache: 'yarn'
       # 如果没有安装node，默认支持npm、yarn等包管理器
-      - run: npm install
-      - run: npm run docs:build
-      - run: npm run build
+      - run: yarn install
+      - run: yarn run docs:build
+      - run: yarn run build
 
-      - name: Deploy
+      - name: Deploy Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # peaceiris/actions-gh-pages：GITHUB_TOKEN 由 Github Actions Runner自动生成
@@ -38,7 +40,8 @@ jobs:
           # 注意替换为你的 Gitee 目标仓库地址
           destination-repo: git@gitee.com:Jay_Ohhh/anchor-scroll-menu.git
 
-      - name: Build Gitee Pages
+      # 需要关注Gitee微信公众号，绑定gitee账号
+      - name: Deploy Gitee Pages
         uses: yanglbme/gitee-pages-action@main
         with:
           # 注意替换为你的 Gitee 用户名

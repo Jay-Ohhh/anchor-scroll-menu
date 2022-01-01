@@ -37,7 +37,7 @@ export interface AnchorScrollProps {
 
   /**
    * @description  缓动动画函数
-   * @default      'easeInOutCubic'
+   * @default      easeInOutCubic
    */
   easing?:
     | 'linear'
