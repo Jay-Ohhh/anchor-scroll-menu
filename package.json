@@ -1,6 +1,6 @@
 {
   "name": "anchor-scroll-menu",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Anchor menu with scrolling contents for React",
   "author": "jay_ohhh",
   "keywords": [
@@ -38,7 +38,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
+    "*.{js,jsx,less,json}": [
       "prettier --write"
     ],
     "*.ts?(x)": [

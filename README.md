@@ -1,15 +1,9 @@
 <h3 style="margin-bottom:0;font-size:38px;color:#b562b6;" align="center">anchor-scroll-menu 👋</h1>
 <div style="font-size:25px;color:#666;" align="center">Anchor menu with scrolling contents for React</div>
 <p align="center">
-  <a style="text-decoration:none;" href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/anchor-scroll-menu.svg">
-  </a>
-   <a style="text-decoration:none;" href="https://www.npmjs.com/package/anchor-scroll-menu">
-    <img alt="downloads" src="https://img.shields.io/npm/dm/anchor-scroll-menu.svg?color=blue" target="_blank" />
-  </a>
-  <a style="text-decoration:none;" href="https://github.com/Jay-Ohhh/anchor-scroll-menu/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/Jay-Ohhh/anchor-scroll-menu" />
-  </a>
+  <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank"><img alt="Version" src="https://img.shields.io/npm/v/anchor-scroll-menu.svg" /></a>
+  <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank"><img alt="downloads" src="https://img.shields.io/npm/dm/anchor-scroll-menu.svg?color=blue"/></a>
+  <a href="https://github.com/Jay-Ohhh/anchor-scroll-menu/blob/master/LICENSE" target="_blank"><img alt="License: MIT" src="https://img.shields.io/github/license/Jay-Ohhh/anchor-scroll-menu" /></a>
 </p>
 
 #### 🏠 [Homepage](https://github.com/Jay-Ohhh/anchor-scroll-menu)
@@ -21,6 +15,10 @@
 ```sh
 $ npm install anchor-scroll-menu
 ```
+
+## Snapshot
+
+![scroll](snapshot/scroll.gif)
 
 ## Usage
 
@@ -67,24 +65,24 @@ export default () => (
 
 ## API
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| menuList | 菜单数据数组，key 请确保是唯一的，由字母数字组成，且必须以字母开头 | `{ name: string; content: ReactNode; key: string; }[]` | `[]` |
-| menuStyle | menu 区域的 style | `CSSProperties` | `--` |
-| placement | menu 区域的位置 | `"top" | "right" | "bottom" | "left"` | `left` |
-| scrollDirection | 滚动方向 | `"vertical" | "horizontal"` | `vertical` |
-| region | 手动滚动时，滚动内容跟父元素顶部距离的区间,滚动内容一到达该区间,对应菜单按钮高亮。如果滚动过快时，菜单没有高亮，不妨将区间增大。 | `[number, number]` | `[-20, 20]` |
-| easing | 缓动动画函数 | `"linear" | "easeInQuad" | "easeOutQuad" | "easeInOutQuad" | "easeInCubic" | "easeOutCubic" | "easeInOutCubic"` | `easeInOutCubic` |
-| duration | 用多少 ms 完成滚动动画，单位 ms | `number` | `300` |
-| hideTitle | 隐藏内容块的 title | `boolean` | `false` |
-| activeKey | 当前激活的 menu 的 key | `string` | `--` |
-| onMenuClick | 点击菜单的回调函数 | `(key: string, index: number, activeKey: string) => void` | `--` |
-| onReach | 点击菜单滚动到达目的地后的回调函数 | `(...args: any[]) => void` | `--` |
-
+| Name            | Description                                                  | Type                                                         | Default          |
+| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------- |
+| menuList        | 菜单数据数组，key请确保是唯一的，由字母数字组成，且必须以字母开头 | `{ name: string; content: ReactNode; key: string; }[]`       | `[]`             |
+| menuStyle       | menu区域的style                                              | `CSSProperties`                                              | `--`             |
+| placement       | menu区域的位置                                               | `"top" | "right" | "bottom" | "left"`                        | `left`           |
+| scrollDirection | 滚动方向                                                     | `"vertical" | "horizontal"`                                  | `vertical`       |
+| region          | 手动滚动时，滚动内容跟父元素顶部距离的区间,滚动内容一到达该区间,对应菜单按钮高亮。如果滚动过快时，菜单没有高亮，不妨将区间增大。 | `[number, number]`                                           | `[-20, 20]`      |
+| easing          | 缓动动画函数                                                 | `"linear" | "easeInQuad" | "easeOutQuad" | "easeInOutQuad" | "easeInCubic" | "easeOutCubic" | "easeInOutCubic"` | `easeInOutCubic` |
+| duration        | 用多少ms完成滚动动画，单位 ms                                | `number`                                                     | `300`            |
+| hideTitle       | 隐藏内容块的title                                            | `boolean`                                                    | `false`          |
+| activeKey       | 当前激活的menu的key                                          | `string`                                                     | `--`             |
+| onMenuClick     | 点击菜单的回调函数                                           | `(key: string, index: number, activeKey: string) => void`    | `--`             |
+| onReach         | 点击菜单滚动到达目的地后的回调函数                           | `(...args: any[]) => void`                                   | `--`             |
 ## Knowledge
 
 - **hooks**的使用：useState、useEffect、useRef、useMemo、useCallback、etc.
-- **Github Actions**：github 自动部署、gitee 同步代码和部署、npm push、etc.
+
+- **Github Actions**：github 自动部署、gitee 同步代码和部署、npm publish、etc.
 - **dumi**：dumi 文档生成工具的使用和配置。
 - **requestAnimationFrame**、**easings**缓动动画函数的使用。
 

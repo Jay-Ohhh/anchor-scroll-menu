@@ -16,7 +16,8 @@ jobs:
         with:
           node-version: '14'
           # actions/setup-node@v2 底层使用了actions/cache
-          # 缓存yarn下载的依赖项，单项目仓库下会依据package-lock.josn或yarn.lock，git push需要提交这两个文件
+          # 缓存yarn下载的依赖项，单项目仓库下会依据package-lock.josn或yarn.lock
+          # 更多的缓存技巧可以参考ant-design的test.yml
           cache: 'yarn'
       # 如果没有安装node，默认支持npm、yarn等包管理器
       - run: yarn install
