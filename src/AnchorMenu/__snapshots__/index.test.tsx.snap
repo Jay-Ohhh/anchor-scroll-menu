@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test AnchorMenu Renderer AnchorMenu 1`] = `
+<div
+  style={
+    Object {
+      "height": 600,
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="menu-anchor-scroll-container row"
+  >
+    <ul
+      className="menu-anchor-scroll-nav"
+      style={
+        Object {
+          "fontSize": 20,
+          "height": "100%",
+          "width": 100,
+        }
+      }
+    >
+      <li
+        className="menu-item active"
+        onClick={[Function]}
+      >
+        antiquewhite
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        skyblue
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        pink
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        orange
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        lightcoral
+      </li>
+    </ul>
+    <div
+      className="menu-anchor-scroll-main horizontal"
+      onScroll={[Function]}
+    >
+      <div
+        className="menu-content"
+      >
+        <h5
+          className="menu-content-title"
+        >
+          antiquewhite
+        </h5>
+        <div
+          style={
+            Object {
+              "backgroundColor": "antiquewhite",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <h5
+          className="menu-content-title"
+        >
+          skyblue
+        </h5>
+        <div
+          style={
+            Object {
+              "backgroundColor": "skyblue",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <h5
+          className="menu-content-title"
+        >
+          pink
+        </h5>
+        <div
+          style={
+            Object {
+              "backgroundColor": "pink",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <h5
+          className="menu-content-title"
+        >
+          orange
+        </h5>
+        <div
+          style={
+            Object {
+              "backgroundColor": "orange",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <h5
+          className="menu-content-title"
+        >
+          lightcoral
+        </h5>
+        <div
+          style={
+            Object {
+              "backgroundColor": "lightcoral",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Test AnchorMenu Renderer AnchorMenu 2`] = `
+<div
+  style={
+    Object {
+      "height": 600,
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="menu-anchor-scroll-container col"
+  >
+    <ul
+      className="menu-anchor-scroll-nav"
+      style={
+        Object {
+          "fontSize": 20,
+          "height": 40,
+          "width": "100%",
+        }
+      }
+    >
+      <li
+        className="menu-item active"
+        onClick={[Function]}
+      >
+        antiquewhite
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        skyblue
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        pink
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        orange
+      </li>
+      <li
+        className="menu-item"
+        onClick={[Function]}
+      >
+        lightcoral
+      </li>
+    </ul>
+    <div
+      className="menu-anchor-scroll-main"
+      onScroll={[Function]}
+    >
+      <div
+        className="menu-content"
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "antiquewhite",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "skyblue",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "pink",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "orange",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+      <div
+        className="menu-content"
+      >
+        <div
+          style={
+            Object {
+              "backgroundColor": "lightcoral",
+              "height": 300,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

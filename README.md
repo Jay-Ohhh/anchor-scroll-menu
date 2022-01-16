@@ -69,16 +69,17 @@ export default () => (
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------- |
 | menuList        | 菜单数据数组，key请确保是唯一的，由字母数字组成，且必须以字母开头 | `{ name: string; content: ReactNode; key: string; }[]`       | `[]`             |
 | menuStyle       | menu区域的style                                              | `CSSProperties`                                              | `--`             |
-| placement       | menu区域的位置                                               | "top" \| "right" \| "bottom" \| "left"                        | `left`           |
-| scrollDirection | 滚动方向                                                     | "vertical" \| "horizontal"                                  | `vertical`       |
+| placement       | menu区域的位置                                               | "top" \| "right" \| "bottom" \| "left"                       | `left`           |
+| scrollDirection | 滚动方向                                                     | "vertical" \| "horizontal"                                   | `vertical`       |
 | region          | 手动滚动时，滚动内容跟父元素顶部距离的区间,滚动内容一到达该区间,对应菜单按钮高亮。如果滚动过快时，菜单没有高亮，不妨将区间增大。 | `[number, number]`                                           | `[-20, 20]`      |
 | easing          | 缓动动画函数                                                 | "linear" \| "easeInQuad" \| "easeOutQuad" \| "easeInOutQuad" \| "easeInCubic" \| "easeOutCubic" \| "easeInOutCubic" | `easeInOutCubic` |
 | duration        | 用多少ms完成滚动动画，单位 ms                                | `number`                                                     | `300`            |
 | hideTitle       | 隐藏内容块的title                                            | `boolean`                                                    | `false`          |
 | activeKey       | 当前激活的menu的key                                          | `string`                                                     | `--`             |
 | onMenuClick     | 点击菜单的回调函数                                           | `(key: string, index: number, activeKey: string) => void`    | `--`             |
-| onReach         | 点击菜单滚动到达目的地后的回调函数                           | `(...args: any[]) => void`                                   | `--`             |
-|## Knowledge||||
+| onReach         | 点击菜单滚动到达目的地后的回调函数                           | `(key: string, index: number) => void`                       | `--`             |
+
+## Knowledge
 
 - **hooks**的使用：useState、useEffect、useRef、useMemo、useCallback、etc.
 

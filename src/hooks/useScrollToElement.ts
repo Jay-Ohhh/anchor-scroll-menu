@@ -9,29 +9,29 @@ type ScrollToElementRefs = {
 const removeSpecialCharacters = (str: string) => str.replace(/[^a-zA-Z0-9]/g, '');
 
 const useScrollToElement = (
-  elementNames: string[],
+  elementKeys: string[],
   scrollViewEl: HTMLElement | null, // 滚动区域元素（带滚动条的元素）
   scrollDirection: 'vertical' | 'horizontal',
-  callback?: (...args: any[]) => void,
   easing: Easings = 'easeInOutCubic',
   duration: number = 300,
+  callback?: (key: string, index: number) => void,
 ) => {
   const scrollToElementRefs = useRef<ScrollToElementRefs>({});
   const [trigger, setTrigger] = useState(+new Date());
 
   useEffect(() => {
-    scrollToElementRefs.current = elementNames.reduce((acc, elementName, index) => {
+    scrollToElementRefs.current = elementKeys.reduce((acc, elementName, index) => {
       acc[removeSpecialCharacters(elementName) || index] = createRef<HTMLElement>();
       return acc;
     }, {} as ScrollToElementRefs);
     //set trigger to force update to below handlers
     setTrigger(+new Date());
-  }, [elementNames]);
+  }, [elementKeys]);
 
   // scroll function
-  function myScroll(elementName: string, index: number = 0) {
+  function myScroll(eleKey: string, index: number = 0) {
     const currentEl =
-      scrollToElementRefs?.current[removeSpecialCharacters(elementName) || index].current;
+      scrollToElementRefs?.current[removeSpecialCharacters(eleKey) || index].current;
 
     let scrollPosition = 'scrollTop';
     let offsetPosition = 'offsetTop';
@@ -80,7 +80,7 @@ const useScrollToElement = (
           scrollViewEl[scrollPosition] = Math.max(currentElOffset, scrollViewElScrollPosition);
         } else {
           cancelId && window.cancelAnimationFrame(cancelId);
-          callback?.();
+          callback?.(eleKey, index);
           return;
         }
         cancelId = window.requestAnimationFrame(smoothScroll);

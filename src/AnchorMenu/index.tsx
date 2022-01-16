@@ -75,7 +75,7 @@ export interface AnchorScrollProps {
    * @description  点击菜单滚动到达目的地后的回调函数
    * @default
    */
-  onReach?: (...args: any[]) => void;
+  onReach?: (key: string, index: number) => void;
 }
 
 const AnchorMenu: React.FC<AnchorScrollProps> = function ({
@@ -94,7 +94,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   // 滚动时设置为true,到达目的地后为false
   // 滚动到目的前,经过的菜单不会高亮
   const clock = useRef(false);
-  const [elementNames, setElementNames] = useState<string[]>([]);
+  const [elementKeys, setElementKeys] = useState<string[]>([]);
   const scrollEle = useRef<HTMLElement>(null);
   const [currentMenuKey, setCurrentMenuKey] = useState<string | undefined>(activeKey);
 
@@ -111,7 +111,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   useDeepCompareEffect(() => {
     if (menuList && menuList.length > 0) {
       const eleNames = menuList.map((menu) => menu.key);
-      setElementNames(eleNames);
+      setElementKeys(eleNames);
       // 设置数组第一个为默认
       !activeKey && menuList[0] && setCurrentMenuKey(menuList[0].key);
     }
@@ -119,20 +119,20 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
 
   const { getScrollToElementRef, scrollToElementClickHandler, scrollToElementRefs } =
     useScrollToElement(
-      elementNames,
+      elementKeys,
       scrollEle.current,
       scrollDirection,
-      () => {
-        clock.current = false;
-        onReach?.();
-      },
       easing,
       duration,
+      (key, index) => {
+        clock.current = false;
+        onReach?.(key, index);
+      },
     );
 
   useEffect(() => {
-    if (activeKey && scrollEle.current) {
-      const activeEle = scrollToElementRefs.current[activeKey]?.current;
+    if (activeKey && scrollEle.current && scrollToElementRefs.current[activeKey]) {
+      const activeEle = scrollToElementRefs.current[activeKey].current;
       if (activeEle) {
         let scrollPosition = 'scrollTop';
         let offsetPosition = 'offsetTop';
@@ -143,7 +143,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
         scrollEle.current[scrollPosition] = activeEle[offsetPosition];
       }
     }
-  }, [activeKey && scrollToElementRefs.current[activeKey]]);
+  }, [activeKey, scrollToElementRefs.current]);
 
   const menuNav = (
     <ul

@@ -28,7 +28,8 @@
     "deploy": "npm run docs:build && npm run docs:deploy",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage",
+    "watch": "umi-test --watch",
+    "coverage": "umi-test --coverage",
     "prepublishOnly": "npm run build"
   },
   "main": "dist/index.js",
@@ -52,6 +53,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.0.3",
     "@umijs/fabric": "^2.8.1",
     "@umijs/test": "^3.0.5",
@@ -61,6 +63,8 @@
     "lint-staged": "^10.0.7",
     "open-browser-webpack-plugin": "^0.0.5",
     "prettier": "^2.2.1",
+    "react-dom": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
     "yorkie": "^2.0.0"
   }
 }
