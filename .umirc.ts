@@ -9,8 +9,9 @@ export default defineConfig({
   outputPath: 'docs-dist',
   mode: 'site',
   // 由于 GitHub Pages 是非域名根路径部署, base 和 publicPath 配置项需改为 仓库名称 。
-  base: '/anchor-scroll-menu/',
-  publicPath: '/anchor-scroll-menu/',
+  // 这里采用相对路径
+  base: '',
+  publicPath: '',
   // more config: https://d.umijs.org/config
 
   // 单语言配置方式如下
