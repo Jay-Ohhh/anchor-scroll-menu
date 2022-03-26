@@ -1,5 +1,5 @@
-<h3 style="margin-bottom:0;font-size:38px;color:#b562b6;" align="center">anchor-scroll-menu 👋</h1>
-<div style="font-size:25px;color:#666;" align="center">Anchor menu with scrolling contents for React</div>
+<h3 style="margin-bottom:0; font-size:38px; color:#b562b6; " align="center">anchor-scroll-menu 👋</h1>
+<div style="font-size:25px; color:#666; " align="center">Anchor menu with scrolling contents for React</div>
 <p align="center">
   <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank"><img alt="Version" src="https://img.shields.io/npm/v/anchor-scroll-menu.svg" /></a>
   <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank"><img alt="downloads" src="https://img.shields.io/npm/dm/anchor-scroll-menu.svg?color=blue"/></a>
@@ -65,34 +65,26 @@ export default () => (
 
 ## API
 
-| Name            | Description                                                  | Type                                                         | Default          |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------- |
-| menuList        | 菜单数据数组，key请确保是唯一的，由字母数字组成，且必须以字母开头 | `{ name: string; content: ReactNode; key: string; }[]`       | `[]`             |
-| menuStyle       | menu区域的style                                              | `CSSProperties`                                              | `--`             |
-| placement       | menu区域的位置                                               | "top" \| "right" \| "bottom" \| "left"                       | `left`           |
-| scrollDirection | 滚动方向                                                     | "vertical" \| "horizontal"                                   | `vertical`       |
-| region          | 手动滚动时，滚动内容跟父元素顶部距离的区间,滚动内容一到达该区间,对应菜单按钮高亮。如果滚动过快时，菜单没有高亮，不妨将区间增大。 | `[number, number]`                                           | `[-20, 20]`      |
-| easing          | 缓动动画函数                                                 | "linear" \| "easeInQuad" \| "easeOutQuad" \| "easeInOutQuad" \| "easeInCubic" \| "easeOutCubic" \| "easeInOutCubic" | `easeInOutCubic` |
-| duration        | 用多少ms完成滚动动画，单位 ms                                | `number`                                                     | `300`            |
-| hideTitle       | 隐藏内容块的title                                            | `boolean`                                                    | `false`          |
-| activeKey       | 当前激活的menu的key                                          | `string`                                                     | `--`             |
-| onMenuClick     | 点击菜单的回调函数                                           | `(key: string, index: number, activeKey: string) => void`    | `--`             |
-| onReach         | 点击菜单滚动到达目的地后的回调函数                           | `(key: string, index: number) => void`                       | `--`             |
+| Name            | Description                                                       | Type                                                                                                                | Default          |
+| --------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| menuList        | 菜单数据数组，key请确保是唯一的，由字母数字组成，且必须以字母开头                                | `{ name: string; content: ReactNode; key: string; }[]` | `[]` |
+| menuStyle       | menu区域的style                                                      | `CSSProperties` | `--` |
+| placement       | menu区域的位置                                                         | "top" \| "right" \| "bottom" \| "left"                                                                              | `left` |
+| scrollDirection | 滚动方向                                                              | "vertical" \| "horizontal"                                                                                          | `vertical` |
+| region          | 手动滚动时，滚动内容跟父元素顶部距离的区间, 滚动内容一到达该区间, 对应菜单按钮高亮。如果滚动过快时，菜单没有高亮，不妨将区间增大。 | `[number, number]` | `[-20, 20]` |
+| easing          | 缓动动画函数                                                            | "linear" \| "easeInQuad" \| "easeOutQuad" \| "easeInOutQuad" \| "easeInCubic" \| "easeOutCubic" \| "easeInOutCubic" | `easeInOutCubic` |
+| duration        | 用多少ms完成滚动动画，单位 ms                                                 | `number` | `300` |
+| hideTitle       | 隐藏内容块的title                                                       | `boolean` | `false` |
+| activeKey       | 当前激活的menu的key                                                     | `string` | `--` |
+| onMenuClick     | 点击菜单的回调函数                                                         | `(key: string, index: number, activeKey: string) => void` | `--` |
+| onReach         | 点击菜单滚动到达目的地后的回调函数                                                 | `(key: string, index: number) => void` | `--` |
 
-## Knowledge
+## 👔 Author
 
-- **hooks**的使用：useState、useEffect、useRef、useMemo、useCallback、etc.
+**Jay-Ohhh**
 
-- **Github Actions**：github 自动部署、gitee 同步代码和部署、npm publish、etc.
-- **dumi**：dumi 文档生成工具的使用和配置。
-- **requestAnimationFrame**、**easings**缓动动画函数的使用。
-
-## Author
-
-👤 **jay_ohhh**
-
-- Website: https://github.com/Jay-Ohhh
-- Github: [@Jay-Ohhh](https://github.com/Jay-Ohhh)
+* Website: https://github.com/Jay-Ohhh
+* Github: [@Jay-Ohhh](https://github.com/Jay-Ohhh)
 
 ## 🤝 Contributing
 
@@ -106,7 +98,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2022 [jay_ohhh](https://github.com/Jay-Ohhh).
+Copyright © 2022 [Jay-Ohhh](https://github.com/Jay-Ohhh).
 
 This project is [MIT](https://github.com/Jay-Ohhh/anchor-scroll-menu/blob/master/LICENSE) licensed.
 

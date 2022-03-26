@@ -1,7 +1,8 @@
 import { defineConfig } from 'dumi';
+import { IConfig } from '@umijs/types';
 import OpenBrowserPlugin from 'open-browser-webpack-plugin';
 
-export default defineConfig({
+const config: IConfig = {
   title: 'anchor-scroll-menu',
   favicon:
     'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
@@ -22,6 +23,12 @@ export default defineConfig({
     },
     { title: 'Changelog', path: 'https://github.com/Jay-Ohhh/anchor-scroll-menu/releases' },
   ],
+
+  alias: {
+    '@/*': 'src/*',
+  },
+
+  fastRefresh: {}, // 开发环境下，可以保持组件状态，同时编辑提供即时反馈
 
   // 配置具体含义见：https://github.com/umijs/umi-webpack-bundle-analyzer#options-for-plugin
   analyze: {
@@ -46,4 +53,6 @@ export default defineConfig({
       ]);
     }
   },
-});
+};
+
+export default defineConfig(config);

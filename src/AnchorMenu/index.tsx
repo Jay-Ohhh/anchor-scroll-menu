@@ -90,7 +90,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
   onReach,
   scrollDirection = 'vertical',
   duration,
-}) {
+}: AnchorScrollProps) {
   // 滚动时设置为true,到达目的地后为false
   // 滚动到目的前,经过的菜单不会高亮
   const clock = useRef(false);
