@@ -65,13 +65,13 @@ const useScrollToElement = (
         scrollDirection,
       );
       // 排除childToParent为null或undefined
-      if (childToParent ?? false) {
+      if (typeof childToParent === 'number') {
         // 判断是否已经滚动到底部/右侧
         // isReachToBottom | isReachToRight
         const isTail =
           scrollViewElScrollPosition + scrollViewElOffsetLength >= scrollViewElScrollLength;
         const time = Math.max(1, +new Date() - startTime);
-        // 因为子元素到达顶部，与父元素后可能会有[-1,1]的间距
+        // 因为子元素到达顶部，与父元素可能会有[-1,1]的间距
         if (childToParent > 1 && !isTail) {
           scrollViewElScrollPosition = easings[easing](time, begin, change, duration);
           scrollViewEl[scrollPosition] = Math.min(currentElOffset, scrollViewElScrollPosition);
