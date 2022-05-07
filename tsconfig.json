@@ -5,7 +5,7 @@
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
-    "types": ["jest"],
+    "types": ["jest", "node"],
     "strict": true,
     "skipLibCheck": true,
     "declaration": true,
@@ -18,5 +18,5 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true
   },
-  "exclude": ["node_modules", "es", "dist", "typings", "**/__test__", "test", "docs", "tests"]
+  "exclude": ["node_modules", "es", "dist", "typings", "**/tests", "test", "docs"]
 }

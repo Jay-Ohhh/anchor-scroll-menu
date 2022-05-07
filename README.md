@@ -1,9 +1,9 @@
 <h3 style="margin-bottom:0; font-size:38px; color:#b562b6; " align="center">anchor-scroll-menu 👋</h1>
 <div style="font-size:25px; color:#666; " align="center">Anchor menu with scrolling contents for React</div>
 <p align="center">
-  <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank"><img alt="Version" src="https://img.shields.io/npm/v/anchor-scroll-menu.svg" /></a>
-  <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank"><img alt="downloads" src="https://img.shields.io/npm/dm/anchor-scroll-menu.svg?color=blue"/></a>
-  <a href="https://github.com/Jay-Ohhh/anchor-scroll-menu/blob/master/LICENSE" target="_blank"><img alt="License: MIT" src="https://img.shields.io/github/license/Jay-Ohhh/anchor-scroll-menu" /></a>
+  <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank" rel="nooppener noreferrer"><img alt="Version" src="https://img.shields.io/npm/v/anchor-scroll-menu.svg" /></a>
+  <a href="https://www.npmjs.com/package/anchor-scroll-menu" target="_blank" rel="nooppener noreferrer"><img alt="downloads" src="https://img.shields.io/npm/dm/anchor-scroll-menu.svg?color=blue"/></a>
+  <a href="https://github.com/Jay-Ohhh/anchor-scroll-menu/blob/master/LICENSE" target="_blank" rel="nooppener noreferrer"><img alt="License: MIT" src="https://img.shields.io/github/license/Jay-Ohhh/anchor-scroll-menu" /></a>
 </p>
 
 #### 🏠 [Homepage](https://github.com/Jay-Ohhh/anchor-scroll-menu)

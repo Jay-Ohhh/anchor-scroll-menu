@@ -20,7 +20,7 @@ export function getOffsetDistance(
   child: HTMLElement,
   parent: HTMLElement,
   direction: 'vertical' | 'horizontal' = 'vertical',
-  region = [-10, 10],
+  region = [-20, 20],
 ) {
   if (direction === 'vertical') {
     // 子元素相对父容器的顶部距离

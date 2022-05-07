@@ -1,7 +1,7 @@
 // todo：AnchorMenu用到了useRef、createRef，需要手动mock ref，并mock 元素的getBoundingClientRect、scrollTop等属性或方法，而且滚动时是动态的，不好模拟，即使模拟也是写死的，先不做了。
 import React from 'react';
 import { create, act } from 'react-test-renderer';
-import AnchorMenu, { AnchorScrollProps } from '@/AnchorMenu/index';
+import AnchorMenu, { AnchorScrollProps } from '../index';
 
 const commonStyle = { height: 300 };
 const menuList = [
@@ -39,7 +39,7 @@ describe('Test AnchorMenu', () => {
       menuStyle: { fontSize: 20 },
       placement: 'left',
       scrollDirection: 'horizontal',
-      region: [-10, 10],
+      region: [-20, 20],
       easing: 'easeInOutCubic',
       duration: 600,
       onMenuClick: (key) => {

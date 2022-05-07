@@ -1,5 +1,6 @@
 import { createRef, RefObject, useRef, useCallback, useState, useEffect } from 'react';
-import { getOffsetDistance, easings, Easings } from '@/utils';
+import { getOffsetDistance, easings } from '../utils';
+import type { Easings } from '../utils';
 
 type ScrollToElementRefs = {
   [key: string]: RefObject<HTMLElement>;

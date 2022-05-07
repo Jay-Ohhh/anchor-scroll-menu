@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState, useRef, useMemo, CSSProperties } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import useScrollToElement from '@/hooks/useScrollToElement';
-import { getOffsetDistance } from '@/utils';
+import useScrollToElement from '../hooks/useScrollToElement';
+import { getOffsetDistance } from '../utils';
 import './index.less';
 
 export interface AnchorScrollProps {
@@ -30,7 +30,7 @@ export interface AnchorScrollProps {
   scrollDirection?: 'vertical' | 'horizontal';
 
   /**
-   * @description  手动滚动时，滚动内容跟父元素顶部距离的区间,滚动内容一到达该区间,对应菜单按钮高亮。如果滚动过快时，菜单没有高亮，不妨将区间增大。
+   * @description  手动滚动时，滚动内容跟父元素顶部距离的区间,滚动内容一到达该区间,对应菜单按钮高亮。如果鼠标滚动幅度过大时，菜单没有高亮，不妨将区间增大。
    * @default      [-20, 20]
    */
   region?: [number, number];
@@ -157,7 +157,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
           onClick={async () => {
             clock.current = true;
             onMenuClick?.(menu.key, index, menu.key);
-            scrollToElementClickHandler(menu.key);
+            scrollToElementClickHandler(menu.key, index);
             setCurrentMenuKey(menu.key);
           }}
         >
@@ -178,7 +178,7 @@ const AnchorMenu: React.FC<AnchorScrollProps> = function ({
           const { isReach } = getOffsetDistance(item, scrollEle.current!, scrollDirection, region);
           // 手动滚动：内容到达位置后，设置菜单高亮
           if (isReach) {
-            setCurrentMenuKey(key);
+            currentMenuKey !== key && setCurrentMenuKey(key);
           }
         }
       }}
