@@ -2,6 +2,9 @@ import { defineConfig } from 'dumi';
 import { IConfig } from '@umijs/types';
 import OpenBrowserPlugin from 'open-browser-webpack-plugin';
 
+const NODE_ENV = process.env.NODE_ENV;
+const platform = process.env.platform;
+
 const config: IConfig = {
   title: 'anchor-scroll-menu',
   favicon:
@@ -10,8 +13,9 @@ const config: IConfig = {
   outputPath: 'docs-dist',
   mode: 'site',
   // 由于 GitHub Pages 是非域名根路径部署, base 和 publicPath 配置项需改为 仓库名称 。
-  base: '/anchor-scroll-menu/',
-  publicPath: '/anchor-scroll-menu/',
+  base: NODE_ENV === 'production' && platform !== 'vercel' ? '/anchor-scroll-menu/' : '/',
+  publicPath: NODE_ENV === 'production' && platform !== 'vercel' ? '/anchor-scroll-menu/' : '/',
+  hash: true, // 配置是否让生成的文件包含 hash 后缀，通常用于增量发布和避免浏览器加载缓存
   // more config: https://d.umijs.org/config
 
   // 单语言配置方式如下
