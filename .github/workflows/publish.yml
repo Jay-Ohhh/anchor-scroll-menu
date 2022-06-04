@@ -1,0 +1,37 @@
+name: publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy_pulish:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check out Repository Code to Workflow
+        uses: actions/checkout@v2 # checkout 仓库代码到 Workflow 工作区
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          # actions/setup-node@v2 底层使用了actions/cache
+          # 缓存yarn下载的依赖项，单项目仓库下会依据package-lock.josn或yarn.lock
+          # 更多的缓存技巧可以参考ant-design的test.yml
+          cache: 'yarn'
+      # 如果没有安装node，默认支持npm、yarn等包管理器
+      - run: yarn install
+      - run: yarn run build
+
+      # publish放在部署之前，否则部署失败会影响publish
+      # 手动修改pacakeg.json version(npm版本)比较好，因为自己比较好确定patch, minor or major
+      # 也可以尝试使用action：npm version and publish
+      - name: npm publish
+        id: publish
+        uses: JS-DevTools/npm-publish@v1 # 会自动检测版本，package.json的version比npm上的版本号新才会publish
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      - if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"

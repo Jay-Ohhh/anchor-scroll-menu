@@ -29,7 +29,7 @@
     "docs:analyzer": "set ANALYZE=1 && dumi build",
     "build": "father-build",
     "deploy": "npm run docs:build && npm run docs:deploy",
-    "deploy:vercel": "cross-env platform=vercel && npm run docs:build",
+    "deploy:vercel": "cross-env platform=vercel npm run docs:build",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "watch": "umi-test --watch",
