@@ -37,12 +37,12 @@ const useScrollToElement = (
     let scrollPosition = 'scrollTop';
     let offsetPosition = 'offsetTop';
     let scrollLength = 'scrollHeight';
-    let offsetLength = 'offsetHeight';
+    let clientLength = 'clientHeight';
     if (scrollDirection === 'horizontal') {
       scrollPosition = 'scrollLeft';
       offsetPosition = 'offsetLeft';
       scrollLength = 'scrollWidth';
-      offsetLength = 'offsetWidth';
+      clientLength = 'clientWidth';
     }
 
     if (!scrollViewEl || !currentEl) return;
@@ -58,7 +58,7 @@ const useScrollToElement = (
       // 垂直滚动 vertical scroll
       const currentElOffset = currentEl[offsetPosition]; // childNode.offsetTop|offsetLeft
       const scrollViewElScrollLength = scrollViewEl[scrollLength]; // scrollViewNode.scrollHeight|scrollWidth
-      const scrollViewElOffsetLength = scrollViewEl[offsetLength]; // scrollViewNode.offsetHeight|offsetWidth
+      const scrollViewElClientLength = scrollViewEl[clientLength]; // scrollViewNode.offsetHeight|offsetWidth
       let scrollViewElScrollPosition = scrollViewEl[scrollPosition]; // scrollViewNode.scrollTop|scrollLeft
       let { offsetDistance: childToParent } = getOffsetDistance(
         currentEl,
@@ -69,8 +69,9 @@ const useScrollToElement = (
       if (typeof childToParent === 'number') {
         // 判断是否已经滚动到底部/右侧
         // isReachToBottom | isReachToRight
+        // 当滚动条元素的 clientHeight + scrollTop >= scrollHeight 时，表示已经抵达内容的底部了
         const isTail =
-          scrollViewElScrollPosition + scrollViewElOffsetLength >= scrollViewElScrollLength;
+          scrollViewElScrollPosition + scrollViewElClientLength >= scrollViewElScrollLength;
         const time = Math.max(1, +new Date() - startTime);
         // 因为子元素到达顶部，与父元素可能会有[-1,1]的间距
         if (childToParent > 1 && !isTail) {
